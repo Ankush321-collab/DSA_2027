@@ -1,0 +1,37 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> st;
+        
+        for(int i = 0; i < s.length(); i++) {
+            
+            char exp = s[i];
+            if(exp == '(' || exp == '{' || exp == '[') {     //if there are opening brackets
+                st.push(exp);
+            }
+            else{
+                
+                if(!st.empty()){  //if the stack is not empty and the closing brackets and top matches then pop
+
+                    int top = st.top();
+                    if( (exp == ')' && top == '(') || (exp == '}' && top == '{') || (exp == ']' && top == '[') ) {
+                        st.pop();
+                    }
+                    else{
+                        return false;  //if the opening and closing bracket doesnt match then its not valid 
+                    }
+                }
+                else{
+                    return false;     //if a closing bracket is present but the stack is already empty
+                }
+            }            
+        }
+
+        if(st.empty()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
