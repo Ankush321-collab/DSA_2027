@@ -56,7 +56,8 @@ int allocate(vector<int>&arr,int n,int m){
 
 int main(){
     vector<int>arr={4, 2, 1, 3, 6};
-    int n=5; int m=2;
+    int n=5;//number of books
+     int m=2;//number of student to get allocated
 
 
     cout<<allocate(arr,n,m);
